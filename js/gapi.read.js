@@ -2,7 +2,7 @@
 function querySheet() {
      var request = gapi.client.sheets.spreadsheets.values.Get({
       "spreadsheetId": DestinationGoogleSpreadsheetId,
-      "ranges": [ DestinationGoogleSheetRange ]
+      "ranges": [ DestinationGoogleSheetRange ],
       "valueRenderOption": "FORMATTED_VALUE",
       "dateTimeRenderOption": 'SERIAL_NUMBER'
     })
