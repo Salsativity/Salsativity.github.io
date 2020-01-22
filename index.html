@@ -75,7 +75,7 @@ function updateSignInStatus(isSignedIn) {
 
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function querySheet() {
-    return gapi.client.sheets.spreadsheets.values.get({
+    return gapi.client.sheets.spreadsheets.values.batchGet({
       "spreadsheetId": DestinationGoogleSpreadsheetId,
       "range": DeistnationGoogleSheetRange,
       "valueRenderOption": "FORMATTED_VALUE",
@@ -84,12 +84,24 @@ function querySheet() {
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Response", response);
+				populateSheet(response.result);
               },
-              function(err) { console.error("Execute error", err); });
+              function(reason) {
+                  console.error('error: ' + reason.result.error.message);
+              });
+}
+
+function populateSheet(result) {
+  var i=0, j=0;
+  for(var range = 0; range < result.valueRanges.length; range++) {
+      for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
+          for(var col=0, j=0; col<result.valueRanges[range].values[row].length; col++, j++) {
+              document.getElementById(i+":"+j).value = result.valueRanges[range].values[row][col];
+          }
+      }
   }
-  gapi.load("client:auth2", function() {
-    gapi.auth2.init({client_id: GoogleClientId});
-});
+}
+
 var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A" // google sheet id from URL https://docs.google.com/forms/d/[...]/edit
 var DestinationGoogleFormEntryId = "191679324" // thats the fieldId for the memberId //press the three vertical dashes in google forms and click on "link für Formalr mit Beispielwerten abrufen"
 var DestinationGoogleSpreadsheetId = "17-hjfI9oEAsSmAEZcIkKfoMzpaTGIuJd3wVV5X6zMYY" // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit
@@ -110,7 +122,10 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
  window.location.href = url;
 };
 </script>
-
+<div style='clear:both'><input type='text' style='float:left;' name = '0:0' id='0:0'></div>
+<div style='clear:both'><input type='text' style='float:left;' name = '1:0' id='1:0'></div>
+<div style='clear:both'><input type='text' style='float:left;' name = '1:1' id='1:1'></div>
+<div style='clear:both'><input type='text' style='float:left;' name = '1:1' id='1:1'></div>
 <button id="signin-button" onclick="SignInClick().then(loadClient)">Sign in</button>
 <button id="signout-button" onclick="signOutClick()">Sign out</button>
 <button onclick="querySheet()">QuerySheet</button>
