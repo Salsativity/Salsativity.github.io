@@ -57,6 +57,13 @@ function initClient() {
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       });
 }
+
+function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
+        querySheet();
+      }
+}
+
 function loadClient() {
       gapi.load('client:auth2', initClient);
 }
@@ -65,7 +72,8 @@ function querySheet() {
     return gapi.client.sheets.spreadsheets.values.get({
       "spreadsheetId": DestinationGoogleSpreadsheetId,
       "range": DeistnationGoogleSheetRange,
-      "valueRenderOption": "FORMATTED_VALUE"
+      "valueRenderOption": "FORMATTED_VALUE",
+      "dateTimeRenderOption": ''
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
