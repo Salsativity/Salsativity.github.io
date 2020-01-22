@@ -8,6 +8,7 @@
 </select>
 <input type="button" value="Send" onclick = "Send()" />
 <script type="text/javascript">
+
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -30,25 +31,20 @@ function getCookie(cname) {
   }
   return "";
 }
+function queryString(parm){
+ var p={};
+ location.search.replace(/[?&;]+([^=]+)=([^&;]*)/gi,function(s,k,v){p[k]=v})
+ return parm?p[parm]:p;
+}
+
 var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A"
 var DestinationGoogleFormEntryId = "191679324"
-var queryString = new Array();
-window.onload = function () {
- if (queryString.length == 0) {
-            if (window.location.search.split('?').length > 1) {
-                var params = window.location.search.split('?')[1].split('&');
-                for (var i = 0; i < params.length; i++) {
-                    var key = params[i].split('=')[0];
-                    var value = decodeURIComponent(params[i].split('=')[1]);
-                    queryString[key] = value;
-                }
-            }
-        }
-        if (queryString["memberId"] != null && getCookie("guard") != null) {
-            var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(memberId);
-            window.location.href = url;
-        }
-    };
+
+if (queryString["memberId"] != null && getCookie("guard") != null) {
+ var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(memberId);
+ window.location.href = url;
+ }
+};
 </script>
 </body>
 </html>
