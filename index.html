@@ -1,7 +1,7 @@
 <html>
 <header><title>This is title</title></header>
 <body>
-<input type="number" id="Id" name="Mitgliedskartennummer" value="" /><br />
+<input type="number" id="id" name="Mitgliedskartennummer" value="" /><br />
 <br />
 Technology:
 <select id="action" name="action">
@@ -46,7 +46,7 @@ window.onload = function () {
                 }
             }
         }
-        if (queryString["Id"] != null && getCookie("guard") != null) {
+        if (queryString["id"] != null && getCookie("guard") != null) {
             var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryID) +"=" + encodeURIComponent(Id);
             window.location.href = url;
         }
