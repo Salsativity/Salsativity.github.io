@@ -1,3 +1,7 @@
+function gapiLoadClient() {
+      gapi.load('client:auth2', initClient);
+}
+
 function initClient() {
       gapi.client.init({
         'apiKey': GoogleApiKey,
@@ -10,19 +14,18 @@ function initClient() {
       });
 }
 
-function loadClient() {
-      gapi.load('client:auth2', initClient);
-}
 function updateSignInStatus(isSignedIn) {
       if (isSignedIn) {
         querySheet();
       }
 }
-function SignInClick() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({scope: GoogleApiPermissionScope})
-        .then(function() { console.log("Sign-in successful"); },
-              function(err) { console.error("Error signing in", err); });
+
+function SignInClick(event) {
+//    return gapi.auth2.getAuthInstance()
+//        .signIn({scope: GoogleApiPermissionScope})
+//        .then(function() { console.log("Sign-in successful"); },
+//              function(err) { console.error("Error signing in", err); });
+    gapi.auth2.getAuthInstance().signIn();
 }
 
 function signOutClick(event) {

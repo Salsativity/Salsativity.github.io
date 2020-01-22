@@ -26,8 +26,8 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 </head>
 <header><title>salsativity.org - Registration Redirector</title></header>
 <body>
-<script async defersrc="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};loadClient()"
+<script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};gapiLoadClient()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 <br />
@@ -36,12 +36,13 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <div style='clear:both'><input type='text' style='float:left;' name = '1:1' id='1:1'></div>
 <div style='clear:both'><input type='text' style='float:left;' name = '1:2' id='1:2'></div>
 <br />
-<button id="signin-button" onclick="SignInClick().then(loadClient)">Sign in</button>
+<div style='clear:both'>
+<button id="signin-button" onclick="SignInClick().then(gapiLoadClient)">Sign in</button>
 <button id="signout-button" onclick="signOutClick()">Sign out</button>
 <button onclick="querySheet()">QuerySheet</button>
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
-
+</div>
 </body>
 </html>
