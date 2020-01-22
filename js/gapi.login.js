@@ -22,11 +22,11 @@ function updateSignInStatus(isSignedIn) {
 }
 
 function SignInClick(event) {
-//    return gapi.auth2.getAuthInstance()
-//        .signIn({scope: GoogleApiPermissionScope})
-//        .then(function() { console.log("Sign-in successful"); },
-//              function(err) { console.error("Error signing in", err); });
-    gapi.auth2.getAuthInstance().signIn();
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: GoogleApiPermissionScope})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+//    gapi.auth2.getAuthInstance().signIn();
 }
 
 function signOutClick(event) {
