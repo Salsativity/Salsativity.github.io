@@ -121,6 +121,11 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
  var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
  window.location.href = url;
 };
+
+// this should be done via onload of the gapi
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: GoogleClientId});
+});
 </script>
 <div style='clear:both'><input type='text' style='float:left;' name = '0:0' id='0:0'></div>
 <div style='clear:both'><input type='text' style='float:left;' name = '1:0' id='1:0'></div>
