@@ -75,7 +75,7 @@ function updateSignInStatus(isSignedIn) {
 
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function querySheet() {
-    return gapi.client.sheets.spreadsheets.values.batchGet({
+    return gapi.client.sheets.spreadsheets.values.Get({
       "spreadsheetId": DestinationGoogleSpreadsheetId,
       "range": DeistnationGoogleSheetRange,
       "valueRenderOption": "FORMATTED_VALUE",
