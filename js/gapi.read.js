@@ -1,14 +1,15 @@
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function querySheet() {
-     var request = gapi.client.sheets.spreadsheets.values.Get({
-      "spreadsheetId": DestinationGoogleSpreadsheetId,
-      "ranges": [ DestinationGoogleSheetRange ],
-      "valueRenderOption": "FORMATTED_VALUE",
-      "dateTimeRenderOption": 'SERIAL_NUMBER'
-    })
+     var params = {
+     "spreadsheetId": DestinationGoogleSpreadsheetId,
+     "ranges": [ DestinationGoogleSheetRange ],
+     "valueRenderOption": "FORMATTED_VALUE",
+     "dateTimeRenderOption": 'SERIAL_NUMBER'
+    };
+    var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
     request.then(function(response) {
                 // Handle the results here (response.result has the parsed body).
-                 console.log(response.result);
+                console.log(response.result);
                 populateSheet(response.result);
               },
               function(reason) {
