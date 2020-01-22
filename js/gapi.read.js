@@ -15,6 +15,7 @@ function querySheet() {
                   console.error('error: ' + reason.result.error.message);
               });
 }
+// populate html code
 function populateSheet(result) {
   var i=0, j=0;
   for(var range = 0; range < result.valueRanges.length; range++) {
