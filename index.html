@@ -90,12 +90,12 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 };
 </script>
 <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
+      onload="this.onload=function(){};querySheet()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 <button id="signin-button" onclick="SignInClick().then(loadClient)">Sign in</button>
 <button id="signout-button" onclick="signOutClick()">Sign out</button>
-<button onclick="querySheet">QuerySheet</button>
+<button onclick="querySheet()">QuerySheet</button>
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
