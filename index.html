@@ -1,14 +1,12 @@
 <html>
-<header><title>This is title</title></header>
+<header><title>salsativity.org - Registration redirector</title></header>
 <body>
 <br />
-<select id="action" name="action">
-    <option value="Guard">Guard</option>
-    <option value="Member">Member</option>
-</select>
-<input type="button" value="Send" onclick = "Send()" />
 <script type="text/javascript">
-
+function alertroles() {
+  var roles = getCookie('roles');
+  alert ("roles:"+roles);
+}
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -37,13 +35,18 @@ function queryString(parm){
  return parm?p[parm]:p;
 }
 
-var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A"
+var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A" // google sheet id from URL https://docs.google.com/forms/d/[...]/edit
+var DestinationGoogleLinkedSheetId = "17-hjfI9oEAsSmAEZcIkKfoMzpaTGIuJd3wVV5X6zMYY" // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit
 var DestinationGoogleFormEntryId = "191679324"
 
-if (queryString["memberId"] != null && getCookie("guard") != null) {
- var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString["memberId"]);
+if (queryString("memberId") != null && getCookie("function") != null) {
+ var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
  window.location.href = url;
 };
+
 </script>
+<input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
+<input type="button" value="Member" onclick = "setCookie('roles', null, '365')" />
+<input type="button" value="Display roles" onclick = "alertroles()" />
 </body>
 </html>
