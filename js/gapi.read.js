@@ -27,12 +27,12 @@ function populateSheet(result) {
               // write headers
               if (row == 0)  {
                  document.getElementById(g+":"+j).value = result.valueRanges[range].values[row][col];
-				 var g++;
+				 g++;
              }
              // write values
              if (queryString("memberId") != null && result.valueRanges[range].values[row][1]==queryString("memberId"))  {
 				 document.getElementById(g+":"+j).value = result.valueRanges[range].values[row][col];
-				 var g++;
+				 g++;
           }
          }  
       }
