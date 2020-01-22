@@ -121,7 +121,7 @@ if (queryString("memberId") != null && getCookie("roles") == "guard") {
 <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
 <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
-<input type="button" value="Member" onclick = "setCookie('roles', null, '365')" />
+<input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display roles" onclick = "alertroles()" />
 </body>
 </html>
