@@ -47,7 +47,7 @@ window.onload = function () {
             }
         }
         if (queryString["id"] != null && getCookie("guard") != null) {
-            var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryID) +"=" + encodeURIComponent(Id);
+            var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryID) +"=" + encodeURIComponent(id);
             window.location.href = url;
         }
     };
