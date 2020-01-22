@@ -53,9 +53,26 @@ function loadClient() {
         .then(function() { console.log("GAPI client loaded for API"); },
               function(err) { console.error("Error loading GAPI client for API", err); });
 }
+// Make sure the client is loaded and sign-in is complete before calling this method.
+  function querySheet() {
+    return gapi.client.sheets.spreadsheets.values.get({
+      "spreadsheetId": DestinationGoogleSpreadsheetId,
+      "range": DeistnationGoogleSheetRange,
+      "valueRenderOption": "FORMATTED_VALUE"
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: GoogleClientId});
+});
 var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A" // google sheet id from URL https://docs.google.com/forms/d/[...]/edit
 var DestinationGoogleFormEntryId = "191679324" // thats the fieldId for the memberId //press the three vertical dashes in google forms and click on "link für Formalr mit Beispielwerten abrufen"
 var DestinationGoogleSpreadsheetId = "17-hjfI9oEAsSmAEZcIkKfoMzpaTGIuJd3wVV5X6zMYY" // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit
+var DeistnationGoogleSheetRange = "Formularantworten 1"
 var GoogleApiKey = 'AIzaSyBlGosN-bpWSGekqiZ0GzlLxxsZcW0zlMg';  // this key is restricted to referer salsativity.github.io
 var GoogleClientId = '43003984043-u7tnn8lve8psj8ogpv6h8vurm4pftah8.apps.googleusercontent.com';  // this ClientId is restricted to internal salsativity users only
       // TODO: Authorize using one of the following scopes:
@@ -66,11 +83,8 @@ var GoogleClientId = '43003984043-u7tnn8lve8psj8ogpv6h8vurm4pftah8.apps.googleus
       //   'https://www.googleapis.com/auth/spreadsheets.readonly'
 var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
+// redirect if its a member
 if (queryString("memberId") != null && getCookie("roles") != "guard") {
- var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
- window.location.href = url;
-};
-if (queryString("memberId") != null && getCookie("roles") == "guard") {
  var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
  window.location.href = url;
 };
@@ -81,7 +95,7 @@ if (queryString("memberId") != null && getCookie("roles") == "guard") {
 </script>
 <button id="signin-button" onclick="SignInClick().then(loadClient)">Sign in</button>
 <button id="signout-button" onclick="signOutClick()">Sign out</button>
-<button onclick="execute()">execute</button>
+<button onclick="querySheet">QuerySheet</button>
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
