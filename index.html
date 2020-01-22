@@ -2,6 +2,11 @@
 <header><title>salsativity.org - Registration Redirector</title></header>
 <body>
 <br />
+<script>
+function loadClient() {
+      gapi.load('client:auth2', initClient);
+}
+</script>
 <script src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};loadClient()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
@@ -68,16 +73,13 @@ function updateSignInStatus(isSignedIn) {
       }
 }
 
-function loadClient() {
-      gapi.load('client:auth2', initClient);
-}
 // Make sure the client is loaded and sign-in is complete before calling this method.
 function querySheet() {
     return gapi.client.sheets.spreadsheets.values.get({
       "spreadsheetId": DestinationGoogleSpreadsheetId,
       "range": DeistnationGoogleSheetRange,
       "valueRenderOption": "FORMATTED_VALUE",
-      "dateTimeRenderOption": ''
+      "dateTimeRenderOption": 'SERIAL_NUMBER'
     })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
