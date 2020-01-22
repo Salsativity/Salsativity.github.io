@@ -1,3 +1,4 @@
+// Make sure the client is initalized and ready for login
 function gapiLoadClient() {
       gapi.load('client:auth2', initClient);
 }

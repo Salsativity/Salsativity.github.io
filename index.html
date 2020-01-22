@@ -39,7 +39,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <div style='clear:both'>
 <button id="signin-button" onclick="SignInClick().then(gapiLoadClient)">Sign in</button>
 <button id="signout-button" onclick="signOutClick()">Sign out</button>
-<button onclick="querySheet()">QuerySheet</button>
+<button id="querySheet-button" onclick="querySheet()">QuerySheet</button>
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
