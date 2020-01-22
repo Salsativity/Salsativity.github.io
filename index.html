@@ -1,7 +1,7 @@
 <html>
 <header><title>This is title</title></header>
 <body>
-<input type="number" id="id" name="Mitgliedskartennummer" value="" /><br />
+<input type="number" id="memberId" name="Mitgliedskartennummer" value="" /><br />
 <br />
 Technology:
 <select id="action" name="action">
@@ -33,7 +33,7 @@ function getCookie(cname) {
   return "";
 }
 var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A"
-var DestinationGoogleFormEntryID = "191679324"
+var DestinationGoogleFormEntryId = "191679324"
 var queryString = new Array();
 window.onload = function () {
  if (queryString.length == 0) {
@@ -46,8 +46,8 @@ window.onload = function () {
                 }
             }
         }
-        if (queryString["id"] != null && getCookie("guard") != null) {
-            var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryID) +"=" + encodeURIComponent(id);
+        if (queryString["memberId"] != null && getCookie("guard") != null) {
+            var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(memberId);
             window.location.href = url;
         }
     };
