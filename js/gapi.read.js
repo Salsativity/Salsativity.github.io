@@ -18,14 +18,23 @@ function querySheet() {
 }
 // populate html code
 function populateSheet(result) {
-  var i=0, j=0;
+  // i, j query matrix 
+  // g output row matrix
+  var i=0, j=0; g=0; 
   for(var range = 0; range < result.valueRanges.length; range++) {
       for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
           for(var col=0, j=0; col<result.valueRanges[range].values[row].length; col++, j++) {
-              if (queryString("memberId") != null && result.valueRanges[range].values[row][1]==queryString("memberId")) {
-			  document.getElementById(i+":"+j).value = result.valueRanges[range].values[row][col];
+              // write headers
+              if (row == 0)  {
+                 document.getElementById(g+":"+j).value = result.valueRanges[range].values[row][col];
+				 var g++;
+             }
+             // write values
+             if (queryString("memberId") != null && result.valueRanges[range].values[row][1]==queryString("memberId"))  {
+				 document.getElementById(g+":"+j).value = result.valueRanges[range].values[row][col];
+				 var g++;
           }
-		}  
+         }  
       }
   }
 }
