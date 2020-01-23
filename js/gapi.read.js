@@ -17,7 +17,7 @@ function querySheet() {
                   console.error('error: ' + reason.result.error.message);
               });
 }
-// populate html code
+// populate input forms  code
 function updateInputForms(result) {
   // i, j query matrix 
   // g output row matrix
@@ -41,7 +41,7 @@ function updateInputForms(result) {
   }
 }
 
-// populate html code
+// populate qr image
 function updateImages(result) {
      // check if we have a memberId thats matching
   var i=0, j=0; g=0; 
@@ -49,7 +49,7 @@ function updateImages(result) {
       for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
         if (queryString("memberId") != null && result.valueRanges[range].values[row][1]==queryString("memberId")) {
 			g++
-			document.getElementById(g+":"+j).src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl="+encodeURIComponent(result.valueRanges[range].values[row][col]);
+			document.getElementById(g+":6").src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl="+encodeURIComponent(result.valueRanges[range].values[g][4]);
         }
       }  
   }
