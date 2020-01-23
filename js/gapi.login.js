@@ -16,13 +16,8 @@ function initClient() {
 }
 
 function updateSignInStatus(isSignedIn) {
-      if (isSignedIn) {
-        querySheet();
-		else {
-		SignInClick(event);
-		querySheet();
-		}
-      }
+      if (!isSignedIn) { SignInClick(); }
+      if (isSignedIn) { querySheet(); }
 }
 
 function SignInClick(event) {
