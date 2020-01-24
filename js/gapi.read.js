@@ -17,6 +17,25 @@ function queryPrivateSheet() {
                   console.error('error: ' + reason.result.error.message);
               });
 }
+//
+function queryPublicSheet() {
+     var params = {
+     "spreadsheetId": DestinationGooglePublicSpreadsheetId,
+     "ranges": DestinationGoogleSheetRange,
+     "valueRenderOption": "FORMATTED_VALUE",
+     "dateTimeRenderOption": 'SERIAL_NUMBER'
+    };
+    var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
+    request.then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log(response.result);
+                updateInputForms(response.result);
+              },
+              function(reason) {
+                  console.error('error: ' + reason.result.error.message);
+              });
+}
+
 // populate input forms  code
 function updateInputForms(result) {
   // i, j query matrix 
