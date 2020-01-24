@@ -36,7 +36,6 @@ function queryPublicSheet() {
               function(reason) {
                   console.error('error: ' + reason.result.error.message);
               });
-              return(response.result);
 }
 
 // populate input forms  code
