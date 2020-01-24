@@ -52,6 +52,8 @@ function isMemberIdRegistered(memberId,memberIdField){
          } else {
             return(false);
          }
+      }
+  }
 }
 
 // populate input forms  code
