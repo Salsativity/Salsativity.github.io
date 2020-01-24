@@ -1,5 +1,7 @@
 <html>
 <head>
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
 <script type="text/javascript">
 var DestinationGoogleFormId = "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A" // google sheet id from URL https://docs.google.com/forms/d/[...]/edit
 var DestinationGoogleFormEntryId = "191679324" // thats the fieldId for the memberId //press the three vertical dashes in google forms and click on "link für Formalr mit Beispielwerten abrufen"
@@ -114,6 +116,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
+<input type="button" value="reload" onclick = "location.reload(true);" />
 </div>
 </body>
 </html>
