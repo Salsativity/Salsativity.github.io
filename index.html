@@ -69,7 +69,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <!-- data payment -->
 <input type='text' style='float:left;width:10%; padding:2px; border:1px solid black' name='1:5' id='1:5'>
 <!-- data QR Code -->
-<script>document.write('<a href="https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'><img id="1:6-img" name="1:6-img" src=https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'></a>');</script>
+<script>document.write('<a id="1:QR-a" name="1:QR-a" href="https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'><img id="1:QR-img" name="1:QR-img" src=https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'></a>');</script>
 </div>
 <!-- 
 // this is if we have duplicated memberId - we need to errorcheck for that and present a warning
