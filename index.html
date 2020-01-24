@@ -7,6 +7,8 @@ var DestinationGooglePrivateSpreadsheetId = "17-hjfI9oEAsSmAEZcIkKfoMzpaTGIuJd3w
 var DestinationGooglePrivateSheetRange = [ "Formularantworten 1!B:G" ]
 var DestinationGooglePublicSpreadsheetId = "1QqKgOTHMOSraR3KsF6eipUMU2KUeGG_HarmyRy8GuTE" // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit that has the importrange setup to only import public data
 var DestinationGooglePublicSheetRange = [ "Tabellenblatt1!A:G" ]
+var ContactDomain = "salsativity.org"
+var ContactAddress = "anmeldungen"
 var GoogleApiKey = 'AIzaSyBlGosN-bpWSGekqiZ0GzlLxxsZcW0zlMg';  // this key is restricted to referer salsativity.github.io
 var GoogleClientId = '43003984043-u7tnn8lve8psj8ogpv6h8vurm4pftah8.apps.googleusercontent.com';  // this ClientId is restricted to internal salsativity users only
       // TODO: Authorize using one of the following scopes:
@@ -19,7 +21,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/queryString.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/gapi.login.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/gapi.read.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
-<script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/images.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
+<script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/ui.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript">
 // redirect if its a member
 if (queryString("memberId") != null && getCookie("roles") != "guard") {
@@ -71,8 +73,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <!-- data QR Code -->
 <a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
 <script type="text/javascript">
-	document.getElementById("1:QR-a").href = 'https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId"))
-	document.getElementById("1:QR-img").src = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString('memberId'))
+	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular für "+memberId+";body=Hallo Team, bitte schickt mir den Link zum Formular für den Ausweis: http://register.salsativity.org/?memberID="+memberId)
 </script>
 </div>
 <!-- 
