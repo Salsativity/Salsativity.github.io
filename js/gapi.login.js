@@ -16,8 +16,8 @@ function initClient() {
 }
 
 function updateSignInStatus(isSignedIn) {
-      if (!isSignedIn) { SignInClick(); }
-      if (isSignedIn) { querySheet(); }
+      if (!isSignedIn) { queryPublicSheet(); }
+      if (isSignedIn) { queryPrivateSheet(); }
 }
 
 function SignInClick(event) {
