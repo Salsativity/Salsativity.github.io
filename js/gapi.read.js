@@ -85,8 +85,8 @@ function updateInputForms(result,memberIdField) {
          }  
       }
   }
-  // redirect if its a member and does not have any memerbId registered
-  if (queryString("memberId") != null && getCookie("roles") != "guard" && !isRegisteredMember {
+  // redirect if its a member and does not have any memerbId registered fixme: this should not be done here
+  if (queryString("memberId") != null && getCookie("roles") != "guard" && !isRegisteredMember) {
   var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
   window.location.href = url;
 };
