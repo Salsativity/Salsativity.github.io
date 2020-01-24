@@ -62,7 +62,7 @@ function updateInputForms(result,memberIdField) {
   // i, j query matrix 
   // g output row matrix (future improvement: more output rows)
   var i=0, j=0; g=0;
-  var isMember=false;
+  var isRegisteredMember=false;
   // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
   for(var range = 0; range < result.valueRanges.length; range++) {
       // loop through all the google sheet rows within the range
