@@ -2,7 +2,7 @@
 function queryPrivateSheet() {
      var params = {
      "spreadsheetId": DestinationGooglePrivateSpreadsheetId,
-     "ranges": DestinationGoogleSheetRange,
+     "ranges": DestinationGooglePrivateSheetRange,
      "valueRenderOption": "FORMATTED_VALUE",
      "dateTimeRenderOption": 'SERIAL_NUMBER'
     };
@@ -21,7 +21,7 @@ function queryPrivateSheet() {
 function queryPublicSheet() {
      var params = {
      "spreadsheetId": DestinationGooglePublicSpreadsheetId,
-     "ranges": DestinationGoogleSheetRange,
+     "ranges": DestinationGooglePublicSheetRange,
      "valueRenderOption": "FORMATTED_VALUE",
      "dateTimeRenderOption": 'SERIAL_NUMBER'
     };
