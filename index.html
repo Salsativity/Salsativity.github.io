@@ -73,7 +73,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <!-- data QR Code -->
 <a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
 <script type="text/javascript">
-	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr "+queryString('memberId')+"&body=Hallo Salsativity Team,%0Abitte schickt mir den Link zum Formular f%C3%BCr den Ausweis:%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId'))
+	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr Mitglied"+queryString('memberId')+"&body=Hallo,%0Abitte um den Link für den Ausweis%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId')+"%0Danke")
 </script>
 </div>
 <!-- 
