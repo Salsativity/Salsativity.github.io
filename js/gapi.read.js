@@ -10,7 +10,8 @@ function queryPrivateSheet() {
     request.then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log(response.result);
-                updateInputForms(response.result);
+                // MemberId is in second field (1)
+				updateInputForms(response.result,1);
                 updateImagesPrivate(response.result);
               },
               function(reason) {
@@ -29,7 +30,8 @@ function queryPublicSheet() {
     request.then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log(response.result);
-                updateInputForms(response.result);
+                // MemberId is in firstfield (0)
+				updateInputForms(response.result,0);
               },
               function(reason) {
                   console.error('error: ' + reason.result.error.message);
@@ -37,7 +39,7 @@ function queryPublicSheet() {
 }
 
 // populate input forms  code
-function updateInputForms(result) {
+function updateInputForms(result,memberIdField) {
   // i, j query matrix 
   // g output row matrix (future improvement: more output rows)
   var i=0, j=0; g=0; 
@@ -46,7 +48,7 @@ function updateInputForms(result) {
       // loop through all the google sheet rows within the range
       for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
           // check if the memberId matches the first field
-          if (queryString("memberId") != null && result.valueRanges[range].values[row][0]==queryString("memberId")) {
+          if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId")) {
             g++
          }
          // loop through all the google sheet columns in this row and range
@@ -56,7 +58,7 @@ function updateInputForms(result) {
                  document.getElementById(0+":"+j).value = result.valueRanges[range].values[row][col];
              }
              // write values if queryString Memberid matches the first field in the row
-             if (queryString("memberId") != null && result.valueRanges[range].values[row][0]==queryString("memberId"))  {
+             if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId"))  {
                  document.getElementById(g+":"+j).value = result.valueRanges[range].values[row][col];
           }
          }  
