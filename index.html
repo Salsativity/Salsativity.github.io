@@ -24,7 +24,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/ui.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript">
 // redirect if its a member
-if (queryString("memberId") != null && getCookie("roles") != "guard") {
+if (queryString("memberId") != null && getCookie("roles") != "guard" && !isMemberIdRegistered(queryString("memberId"),0) {
  var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
  window.location.href = url;
 };
@@ -77,7 +77,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 </script>
 </div>
 <!-- 
-// this is if we have duplicated memberId - we need to errorcheck for that and present a warning
+// this is if we have duplicated memberId or we want more rows to show
 <div style='clear:both'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '2:0' id='2:0'><input type='text' style='float:left;width:5%; padding:2px; border:1px solid black' name = '2:1' id='2:1'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '2:2' id='2:2'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '2:3' id='2:3'><input type='text' style='float:left;width:10%; padding:2px; border:1px solid black' name = '2:4' id='2:4'><input type='text' style='float:left;width:10%; padding:2px; border:1px solid black' name='2:5' id='2:5'></div>
 <div style='clear:both'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '3:0' id='3:0'><input type='text' style='float:left;width:5%; padding:2px; border:1px solid black' name = '3:1' id='3:1'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '3:2' id='3:2'><input type='text' style='float:left;width:17.5%; padding:2px; border:1px solid black' name = '3:3' id='3:3'><input type='text' style='float:left;width:10%; padding:2px; border:1px solid black' name = '3:4' id='3:4'><input type='text' style='float:left;width:10%; padding:2px; border:1px solid black' name='3:5' id='3:5'></div>
 -->

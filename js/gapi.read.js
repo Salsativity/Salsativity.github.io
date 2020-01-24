@@ -11,7 +11,7 @@ function queryPrivateSheet() {
                 // Handle the results here (response.result has the parsed body).
                 console.log(response.result);
                 // MemberId is in second field (1)
-				updateInputForms(response.result,1);
+                updateInputForms(response.result,1);
                 updateImagesPrivate(response.result);
               },
               function(reason) {
@@ -31,11 +31,27 @@ function queryPublicSheet() {
                 // Handle the results here (response.result has the parsed body).
                 console.log(response.result);
                 // MemberId is in firstfield (0)
-				updateInputForms(response.result,0);
+                updateInputForms(response.result,0);
               },
               function(reason) {
                   console.error('error: ' + reason.result.error.message);
               });
+}
+
+//check array if it contains memberId
+function isMemberIdRegistered(memberId,memberIdField){
+  // i, j query matrix 
+  var i=0, j=0;
+  // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
+  for(var range = 0; range < result.valueRanges.length; range++) {
+      // loop through all the google sheet rows within the range (fixme: we dont need to loop here)
+      for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
+          // check if the memberId matches the first field
+         if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId")) {
+            return(true); 
+         } else {
+            return(false);
+         }
 }
 
 // populate input forms  code
