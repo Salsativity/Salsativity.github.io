@@ -123,7 +123,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <input type="button" value="Guard" onclick = "setCookie('roles', 'guard', '365')" />
 <input type="button" value="Member" onclick = "setCookie('roles', '', '-1')" />
 <input type="button" value="Display current role" onclick = "alertroles()" />
-<input type="button" value="Reload" onclick = 'window.location.search = "?memberId="+document.getElementById("memberId").value' />
+<input type="button" value="Reload" onclick = "loadMemberId(document.getElementById('memberId').value)" />
 <input type="number" value="" id="memberId" />
 <script>
 	document.getElementById("memberId").value = queryString("memberId");
