@@ -22,14 +22,6 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/gapi.login.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/gapi.read.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/ui.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
-<script type="text/javascript">
-// redirect if its a member
-if (queryString("memberId") != null && getCookie("roles") != "guard" && !isMemberIdRegistered(queryPublicSheet(),0,queryString("memberId")) {
- var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
- window.location.href = url;
-};
-
-</script>
 </head>
 <header><title>salsativity.org - Registration Redirector</title></header>
 <body>

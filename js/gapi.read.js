@@ -40,7 +40,7 @@ function queryPublicSheet() {
 }
 
 //check array if it contains memberId
-function isMemberIdRegistered(result,memberIdField,memberId){
+function isMemberIdRegistered(result,memberIdField,memberId) {
   // i, j query matrix 
   var i=0, j=0;
   // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
@@ -61,7 +61,8 @@ function isMemberIdRegistered(result,memberIdField,memberId){
 function updateInputForms(result,memberIdField) {
   // i, j query matrix 
   // g output row matrix (future improvement: more output rows)
-  var i=0, j=0; g=0; 
+  var i=0, j=0; g=0;
+  var isMember=false;
   // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
   for(var range = 0; range < result.valueRanges.length; range++) {
       // loop through all the google sheet rows within the range
@@ -69,7 +70,8 @@ function updateInputForms(result,memberIdField) {
           // check if the memberId matches the first field
           if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId")) {
             g++
-         }
+			isRegisteredMember=true;
+          }
          // loop through all the google sheet columns in this row and range
 		 for(var col=0, j=0; col<result.valueRanges[range].values[row].length; col++, j++) {
               // write headers
@@ -83,6 +85,12 @@ function updateInputForms(result,memberIdField) {
          }  
       }
   }
+  // redirect if its a member and does not have any memerbId registered
+  if (queryString("memberId") != null && getCookie("roles") != "guard" && !isRegisteredMember {
+  var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
+  window.location.href = url;
+};
+  
 }
 
 // populate qr image
