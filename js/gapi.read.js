@@ -80,7 +80,7 @@ function updateImagesPrivate(result) {
             g++
             // check if queryString Memberid matches the second [1] field and update QR Code and link
             document.getElementById(g+":QR-img").src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl="+encodeURIComponent(result.valueRanges[range].values[g][4]);
-            document.getElementById(g+":QR-a").href = result.valueRanges[range].values[g][4]);
+            document.getElementById(g+":QR-a").href = result.valueRanges[range].values[g][4];
         }
       }  
   }
