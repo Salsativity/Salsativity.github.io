@@ -73,7 +73,13 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 </tr>
 <tr>
 <td style="border: 0px;height: 26px;" >&nbsp;</td>
-<td style="border: 0px; height: 150px;"rowspan="2">QRCode Here</td>
+<td style="border: 0px; height: 150px;"rowspan="2">
+<!-- data QR Code -->
+<a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
+<script type="text/javascript">
+	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr Mitglied: "+queryString('memberId')+"&body=Hallo,%0Abitte um den Link f%C3%BCr den Ausweis%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId')+"%0ADanke");
+</script>
+</td>
 <td style="height: 26px;border: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td style="border: 0px;height: 26px;">Firstname</td>
 <td style="border: 0px;height: 26px;">&nbsp;</td>
@@ -93,11 +99,6 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 </tr>
 </tbody>
 </table>
-<!-- data QR Code -->
-<a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
-<script type="text/javascript">
-	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr Mitglied: "+queryString('memberId')+"&body=Hallo,%0Abitte um den Link f%C3%BCr den Ausweis%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId')+"%0ADanke");
-</script>
 </div>
 <!-- 
 // this is if we have duplicated memberId or we want more rows to show
