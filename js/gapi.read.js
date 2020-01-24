@@ -39,24 +39,6 @@ function queryPublicSheet() {
               return(response.result);
 }
 
-//check array if it contains memberId
-function isMemberIdRegistered(result,memberIdField,memberId) {
-  // i, j query matrix 
-  var i=0, j=0;
-  // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
-  for(var range = 0; range < result.valueRanges.length; range++) {
-      // loop through all the google sheet rows within the range (fixme: we dont need to loop here)
-      for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
-          // check if the memberId matches the first field
-         if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId")) {
-            return(true); 
-         } else {
-            return(false);
-         }
-      }
-  }
-}
-
 // populate input forms  code
 function updateInputForms(result,memberIdField) {
   // i, j query matrix 
@@ -67,13 +49,13 @@ function updateInputForms(result,memberIdField) {
   for(var range = 0; range < result.valueRanges.length; range++) {
       // loop through all the google sheet rows within the range
       for(var row=0; row<result.valueRanges[range].values.length; row++, i++) {
-          // check if the memberId matches the first field
+          // check if the memberId matches the memberIdField field
           if (queryString("memberId") != null && result.valueRanges[range].values[row][memberIdField]==queryString("memberId")) {
             g++
-			isRegisteredMember=true;
+            isRegisteredMember=true;
           }
          // loop through all the google sheet columns in this row and range
-		 for(var col=0, j=0; col<result.valueRanges[range].values[row].length; col++, j++) {
+         for(var col=0, j=0; col<result.valueRanges[range].values[row].length; col++, j++) {
               // write headers
               if (row == 0)  {
                  document.getElementById(0+":"+j).value = result.valueRanges[range].values[row][col];
@@ -106,8 +88,7 @@ function updateImagesPrivate(result) {
         if (queryString("memberId") != null && result.valueRanges[range].values[row][1]==queryString("memberId")) {
             g++
             // check if queryString Memberid matches the second [1] field and update QR Code and link
-            document.getElementById(g+":QR-img").src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl="+encodeURIComponent(result.valueRanges[range].values[g][4]);
-            document.getElementById(g+":QR-a").href = result.valueRanges[range].values[g][4];
+            updateQRCode(g,result.valueRanges[range].values[g][4]);
         }
       }  
   }
