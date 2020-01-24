@@ -30,5 +30,5 @@ function SignInClick(event) {
 
 function signOutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-	updateSignInStatus(false);
+    updateSignInStatus(false);
 }
