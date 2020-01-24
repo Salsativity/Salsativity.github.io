@@ -126,7 +126,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <input type="button" value="Reload" onclick = "window.location.search = document.getElementById("memberId").value;" />
 <input type="number" value="" id="memberId" />
 <script>
-	<document.getElementById("memberId").value = queryString("memberId")
+	document.getElementById("memberId").value = queryString("memberId");
 </script>
 </div>
 </body>
