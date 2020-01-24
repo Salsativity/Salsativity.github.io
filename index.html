@@ -24,7 +24,7 @@ var GoogleApiPermissionScope = 'https://www.googleapis.com/auth/spreadsheets.rea
 <script type="text/javascript"> document.write('<scr'+'ipt type="text/javascript" src="js/ui.js?chachbuster=' +cachebuster+ '"></scr' + 'ipt>');</script>
 <script type="text/javascript">
 // redirect if its a member
-if (queryString("memberId") != null && getCookie("roles") != "guard" && !isMemberIdRegistered(queryString("memberId"),0)) {
+if (queryString("memberId") != null && getCookie("roles") != "guard" && !isMemberIdRegistered(queryPublicSheet,0,queryString("memberId")) {
  var url = "https://docs.google.com/forms/d/e/" + encodeURIComponent(DestinationGoogleFormId) +"/viewform?usp=pp_url&entry."+ encodeURIComponent(DestinationGoogleFormEntryId) +"=" + encodeURIComponent(queryString("memberId"));
  window.location.href = url;
 };
@@ -73,7 +73,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard" && !isMembe
 <!-- data QR Code -->
 <a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
 <script type="text/javascript">
-	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr Mitglied"+queryString('memberId')+"&body=Hallo,%0Abitte um den Link für den Ausweis%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId')+"%0Danke")
+	updateQRCode(1,"mailto:"+ContactAddress+"@"+ContactDomain+"?subject=Link zu Anmeldeformular f%C3%BCr Mitglied"+queryString('memberId')+"&body=Hallo,%0Abitte um den Link f%C3%BCr den Ausweis%0Ahttp://register.salsativity.org/?memberID="+queryString('memberId')+"%0Danke")
 </script>
 </div>
 <!-- 

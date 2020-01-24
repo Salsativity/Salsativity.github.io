@@ -36,10 +36,11 @@ function queryPublicSheet() {
               function(reason) {
                   console.error('error: ' + reason.result.error.message);
               });
+              return(response.result);
 }
 
 //check array if it contains memberId
-function isMemberIdRegistered(memberId,memberIdField){
+function isMemberIdRegistered(result,memberIdField,memberId){
   // i, j query matrix 
   var i=0, j=0;
   // loop through all the ranges (future improvement: request multiple ranges so we don´t need to load the full spreadsheet/full range) 
