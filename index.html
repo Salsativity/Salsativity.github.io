@@ -71,7 +71,7 @@ if (queryString("memberId") != null && getCookie("roles") != "guard") {
 <!-- data QR Code -->
 <a id="1:QR-a" name="1:QR-a" href=""><img id="1:QR-img" name="1:QR-img" src=""></a>
 <script type="text/javascript">
-	document.getElementById("1:QR-a").href = "https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'><img id="1:QR-img" name="1:QR-img" 
+	document.getElementById("1:QR-a").href = "https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'>
 	document.getElementById("1:QR-img").src = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://docs.google.com/forms/d/e/' + encodeURIComponent(DestinationGoogleFormId) +'/viewform?usp=pp_url'+encodeURIComponent('&')+'entry.'+ encodeURIComponent(DestinationGoogleFormEntryId) +'=' + encodeURIComponent(queryString("memberId")) +'></a>');</script>
 </div>
 <!-- 
