@@ -17,7 +17,7 @@ Change any code here, when comitted the changes are viewable on (https://registr
 ## Buildingblocks
 
 - Public Google Sheets table
-  ��this contains the public viewable (linked from the private google sheets table) records:
+  this contains the public viewable (linked from the private google sheets table) records:
 
   - memberId registered
   - payment information
@@ -34,6 +34,12 @@ Change any code here, when comitted the changes are viewable on (https://registr
 - Google Forms
   this contains all the questions for the membership and course registration
 
+- [Google APIs](https://console.developers.google.com)
+  For accessing the Google Sheets you will need to setup OAuth 2.0-Client-IDs and API for Google Sheet
+  - Enable the Google Sheet API for the organisation
+  - Create an API Key for the Application (limit to the referer)
+  - Create an Oauth 2.0-Client-ID (limited to the exact application url)
+  
 - Javascript Code
   configuration for containing the matching Google Sheets Public and Private table
   `js/config/default.js`
@@ -91,6 +97,6 @@ Please [open an issue](https://github.com/Salsativity/Salsativity.github.io/issu
 
 ## Contributing
 
-Use [Codesandbox.io](https://codesandbox.io/s/registersalsativityorg-7l6bt) if you would like to edit or test code.
+Use [Codesandbox.io](https://codesandbox.io/) to edit or test code. Testing login/logout, you will have to update the Google API OAuth 2.0-Client-IDs to match the [....].codesandbox.io and [....].csb.app URL
 
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/Salsativity/Salsativity.github.io/compare/).
