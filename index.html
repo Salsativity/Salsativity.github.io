@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/membercard.css" />
     <script type="text/javascript">
       var cachebuster = Math.round(new Date().getTime() / 1000);
+      var defaultconfig = "default.js";
     </script>
     <script type="text/javascript">
       document.write(
@@ -15,20 +16,22 @@
           "ipt>"
       );
     </script>
-    <!-- we could dynamically load a different configuration based on the season/testing enviroment -->
     <script type="text/javascript">
       document.write(
         "<scr" +
-          'ipt type="text/javascript" src="js/config/default.js?cachebuster=' +
+          'ipt type="text/javascript" src="js/queryString.js?chachbuster=' +
           cachebuster +
           '"></scr' +
           "ipt>"
       );
     </script>
+    <!-- we could dynamically load a different configuration based on the season/testing enviroment -->
     <script type="text/javascript">
       document.write(
         "<scr" +
-          'ipt type="text/javascript" src="js/queryString.js?chachbuster=' +
+          'ipt type="text/javascript" src="js/config/' +
+          defaultconfig +
+          "?cachebuster=" +
           cachebuster +
           '"></scr' +
           "ipt>"
@@ -281,7 +284,12 @@
       <input
         type="button"
         value="Display current role"
-        onclick="alertroles()"
+        onclick="alertCookie('roles')"
+      />
+      <input
+        type="button"
+        value="Display current season"
+        onclick="alertCookie('season')"
       />
       <input
         type="button"
