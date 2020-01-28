@@ -308,14 +308,18 @@
     <br />
     <div style="clear:both">
       <form id="Season">
-        <select id="mySeason"> </select>
+        <select
+          id="mySeason"
+          onchange="setCookie('Season',document.getElementById('mySeason').value);"
+        >
+        </select>
         <script>
           populateSelect(availableSeasons, "mySeason", displayedSeason);
         </script>
         <input
           type="button"
           value="Display current season"
-          onclick="alertCookie('season')"
+          onclick="alertCookie('Season')"
         />
       </form>
     </div>
