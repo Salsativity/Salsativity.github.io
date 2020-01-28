@@ -1,0 +1,26 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "This is a static template with no bundling",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salsativity/Salsativity.github.io.git"
+  },
+  "keywords": [
+    "codesandbox",
+    "static"
+  ],
+  "author": "Ives van Hoorne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Salsativity/Salsativity.github.io/issues"
+  },
+  "homepage": "https://github.com/Salsativity/Salsativity.github.io/blob/master/README.md",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}
