@@ -25,13 +25,25 @@
           "ipt>"
       );
     </script>
-    <!-- we could dynamically load a different configuration based on the season/testing enviroment -->
+    <!-- load default configuration based on the season/testing enviroment -->
     <script type="text/javascript">
       document.write(
         "<scr" +
           'ipt type="text/javascript" src="js/config/' +
           defaultconfig +
           "?cachebuster=" +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <!-- load season configuration based on the season/testing enviroment -->
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/config/' +
+          Season +
+          ".js?cachebuster=" +
           cachebuster +
           '"></scr' +
           "ipt>"
@@ -200,6 +212,9 @@
           >
             <td style="height: 26px;color: #fff;" align="center" colspan="5">
               Salsativity Member Card
+              <script>
+                document.write(Season);
+              </script>
             </td>
           </tr>
           <tr>
