@@ -10,6 +10,15 @@
     <script type="text/javascript">
       document.write(
         "<scr" +
+          'ipt type="text/javascript" src="js/ui.js?chachbuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
           'ipt type="text/javascript" src="js/cookies.js?cachebuster=' +
           cachebuster +
           '"></scr' +
@@ -25,7 +34,7 @@
           "ipt>"
       );
     </script>
-    <!-- load default configuration based on the season/testing enviroment -->
+    <!-- load default configuration and determiate season configuration -->
     <script type="text/javascript">
       document.write(
         "<scr" +
@@ -37,12 +46,12 @@
           "ipt>"
       );
     </script>
-    <!-- load season configuration based on the season/testing enviroment -->
+    <!-- load season configuration -->
     <script type="text/javascript">
       document.write(
         "<scr" +
           'ipt type="text/javascript" src="js/config/' +
-          Season +
+          displayedSeason +
           ".js?cachebuster=" +
           cachebuster +
           '"></scr' +
@@ -62,15 +71,6 @@
       document.write(
         "<scr" +
           'ipt type="text/javascript" src="js/gapi.read.js?chachbuster=' +
-          cachebuster +
-          '"></scr' +
-          "ipt>"
-      );
-    </script>
-    <script type="text/javascript">
-      document.write(
-        "<scr" +
-          'ipt type="text/javascript" src="js/ui.js?chachbuster=' +
           cachebuster +
           '"></scr' +
           "ipt>"
@@ -213,7 +213,7 @@
             <td style="height: 26px;color: #fff;" align="center" colspan="5">
               Salsativity Member Card
               <script>
-                document.write(Season);
+                document.write(displayedSeason);
               </script>
             </td>
           </tr>
@@ -286,6 +286,9 @@
       <button id="queryPrivateSheet-button" onclick="queryPrivateSheet()">
         queryPrivateSheet
       </button>
+    </div>
+    <br />
+    <div style="clear:both">
       <input
         type="button"
         value="Guard"
@@ -301,14 +304,26 @@
         value="Display current role"
         onclick="alertCookie('roles')"
       />
+    </div>
+    <br />
+    <div style="clear:both">
+      <form id="Season">
+        <select id="mySeason"> </select>
+        <script>
+          populateSelect(availableSeasons, "mySeason", displayedSeason);
+        </script>
+        <input
+          type="button"
+          value="Display current season"
+          onclick="alertCookie('season')"
+        />
+      </form>
+    </div>
+    <br />
+    <div style="clear:both">
       <input
         type="button"
-        value="Display current season"
-        onclick="alertCookie('season')"
-      />
-      <input
-        type="button"
-        value="Reload"
+        value="Query memberId"
         onclick="loadMemberId(document.getElementById('memberId').value)"
       />
       <input type="number" value="" id="memberId" />

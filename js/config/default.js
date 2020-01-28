@@ -1,6 +1,6 @@
 // these are the sane defaults
 var defaultSeason = "SS2020";
-var availableSesons = ["SS2020", "WS2021"];
+var availableSeasons = ["SS2020", "SI2020", "WS2021"];
 var requestedSeason = getCookie("Season");
 var ContactDomain = "salsativity.org";
 var ContactAddress = "anmeldungen";
@@ -23,7 +23,7 @@ var DestinationGooglePublicSpreadsheetId =
 var DestinationGooglePublicSheetRange = ["Tabellenblatt1!A:G"];
 
 if (requestedSeason != "") {
-  Season = requestedSeason;
+  displayedSeason = requestedSeason;
 } else {
-  Season = defaultSeason;
+  displayedSeason = defaultSeason;
 }
