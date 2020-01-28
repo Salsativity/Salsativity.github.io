@@ -5,7 +5,7 @@ This is a static webpage used for registering and checking the registration for 
 ## Table of Contents
 
 - [Deployment](#Deployment)
-- [Buildingblocks] (#Buildingblocks)
+- [Buildingblocks](#Buildingblocks)
 - [Usage](#usage)
 - [Support](#support)
 - [Contributing](#contributing)
@@ -43,7 +43,7 @@ the content of `index.html` together represents an implementation of the usersto
 
 ### Registering a Membership at event adminssion or participant member
 
-As a non-member of the organisation i would like to become a member:
+#### As a non-member of the organisation i would like to become a member:
 
 1. receive a memerbship card with a QR Code from the organisation
 ···this will contain an empty field for first/lastname and payment
@@ -56,7 +56,7 @@ As a non-member of the organisation i would like to become a member:
 8. public table links the relevant fields to the private table
 
 
-- Checking a Membership as participant member
+#### Checking a Membership as participant member
 
 As a registered member i would like to check my payment status and registration to the courses:
 
@@ -67,18 +67,18 @@ As a registered member i would like to check my payment status and registration 
 5. Browser renders a QR Code with mailto: link that asks an email address to provide the link for editing the form
 6. Browser shows payment and course registration information
 
-- Checking a Membership at event admission
+#### Checking a Membership at event admission
 
 As member working at the event admission (guard) i would like to check the payment and course registration of the member showing the card
 
-in preperation to the event the guard opens http://register.salsativity.org:
+##### in preperation to the event the guard opens http://register.salsativity.org:
 1. presses the "login" button
 2. selects the google account of the organisation to login (which should be alrady registered on his/her smartphone
 3. presses the "guard" button
 4. makes shure he/she has access to the Private Google Sheets table
 
 
-at the event:
+##### at the event:
 
 1. the member provides the guard with a QR Code (either via smartphone or membership card)
 2. the guard scans the QR Code
