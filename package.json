@@ -1,7 +1,7 @@
 {
-  "name": "static",
+  "name": "registersalsativityorg",
   "version": "1.0.0",
-  "description": "This is a static template with no bundling",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "serve"
@@ -10,10 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Salsativity/Salsativity.github.io.git"
   },
-  "keywords": [
-    "codesandbox",
-    "static"
-  ],
+  "keywords": [],
   "author": "Ives van Hoorne",
   "license": "MIT",
   "bugs": {

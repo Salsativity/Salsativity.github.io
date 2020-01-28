@@ -17,7 +17,7 @@ Change any code here, when comitted the changes are viewable on (https://registr
 ## Buildingblocks
 
 - Public Google Sheets table
-··this contains the public viewable (linked from the private google sheets table) records:
+ï¿½ï¿½this contains the public viewable (linked from the private google sheets table) records:
   - memberId registered
   - payment information
   - course registrations
@@ -44,7 +44,7 @@ the content of `index.html` together represents an implementation of the usersto
 ### As a non-member of the organisation i would like to become a member:
 
 1. receive a memerbship card with a QR Code from the organisation
-···this will contain an empty field for first/lastname and payment
+ï¿½ï¿½ï¿½this will contain an empty field for first/lastname and payment
 2. the non-member scans the QR Code
 3. Browser opens to http://register.salsativity.org?memberId=[1-9]* and is redirected to https://salsativity.github.io/?memberId=2123
 4. Javascript Code checks if cookie "roles" is not set to "guard" 
