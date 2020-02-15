@@ -7,6 +7,7 @@
       var cachebuster = Math.round(new Date().getTime() / 1000);
       var defaultconfig = "default.js";
     </script>
+    <!-- use cachebusters which are only available if you use document.write-->
     <script type="text/javascript">
       document.write(
         "<scr" +
@@ -79,6 +80,7 @@
   </head>
   <header><title>salsativity.org - Registration Redirector</title></header>
   <body>
+    <!--- kiad google api js library-->
     <script
       async
       defer
