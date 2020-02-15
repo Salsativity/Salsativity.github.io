@@ -12,7 +12,7 @@ This is a static webpage used for registering and checking the registration for 
 
 ## Deployment
 
-Change any code here, when comitted the changes are viewable on (https://registration.salsativity.org):
+Change any code here, when comitted the changes are viewable on (http://register.salsativity.org):
 
 ## Buildingblocks
 
