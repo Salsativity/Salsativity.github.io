@@ -1,6 +1,6 @@
 //check if member at ID even exists
 function redirectGuardOrMember() {
-  updateInputForms();
+  queryPublicSheet();
 }
 
 // Make sure the client is loaded and sign-in is complete before calling this method.
@@ -33,10 +33,12 @@ function queryPublicSheet() {
     valueRenderOption: "FORMATTED_VALUE",
     dateTimeRenderOption: "SERIAL_NUMBER"
   };
+  console.log("Yeet");
   var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
   request.then(
     function(response) {
       // Handle the results here (response.result has the parsed body).
+      console.log("Here");
       console.log(response.result);
       // MemberId is in firstfield (0)
       updateInputForms(response.result, 0);
