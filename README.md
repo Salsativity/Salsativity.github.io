@@ -12,12 +12,12 @@ This is a static webpage used for registering and checking the registration for 
 
 ## Deployment
 
-Change any code here, when comitted the changes are viewable on (https://registration.salsativity.org):
+Change any code here, when comitted the changes are viewable on (http://register.salsativity.org):
 
 ## Buildingblocks
 
 - Public Google Sheets table
-  ��this contains the public viewable (linked from the private google sheets table) records:
+  this contains the public viewable (linked from the private google sheets table) records:
 
   - memberId registered
   - payment information
@@ -34,9 +34,17 @@ Change any code here, when comitted the changes are viewable on (https://registr
 - Google Forms
   this contains all the questions for the membership and course registration
 
+- [Google APIs](https://console.developers.google.com)
+  For accessing the Google Sheets you will need to setup OAuth 2.0-Client-IDs and API for Google Sheet
+  - Enable the Google Sheet API for the organisation
+  - Create an API Key for the Application (limit to the referer)
+  - Create an Oauth 2.0-Client-ID (limited to the exact application url)
+  
 - Javascript Code
   configuration for containing the matching Google Sheets Public and Private table
   `js/config/default.js`
+  and for the specific season eg WS2020
+  `js/config/WS2020.js`
 
 ## Usage
 
@@ -45,7 +53,7 @@ the content of `index.html` together represents an implementation of the usersto
 ### As a non-member of the organisation i would like to become a member:
 
 1. receive a memerbship card with a QR Code from the organisation
-   ���this will contain an empty field for first/lastname and payment
+   this will contain an empty field for first/lastname and payment
 2. the non-member scans the QR Code
 3. Browser opens to http://register.salsativity.org?memberId=[1-9]* and is redirected to https://salsativity.github.io/?memberId=2123
 4. Javascript Code checks if cookie "roles" is not set to "guard"
@@ -91,6 +99,6 @@ Please [open an issue](https://github.com/Salsativity/Salsativity.github.io/issu
 
 ## Contributing
 
-Use [Codesandbox.io](https://codesandbox.io/s/registersalsativityorg-7l6bt) if you would like to edit or test code.
+Use [Codesandbox.io](https://codesandbox.io/) to edit or test code. Testing login/logout, you will have to update the Google API OAuth 2.0-Client-IDs to match the [....].codesandbox.io and [....].csb.app URL
 
 Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/Salsativity/Salsativity.github.io/compare/).
