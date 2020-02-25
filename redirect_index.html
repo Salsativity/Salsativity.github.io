@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var cachebuster = Math.round(new Date().getTime() / 1000);
+      var defaultconfig = "default.js";
+    </script>
+    <!-- use cachebusters which are only available if you use document.write-->
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/ui.js?chachbuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/cookies.js?cachebuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/queryString.js?chachbuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <!-- load default configuration and determiate season configuration -->
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/config/' +
+          defaultconfig +
+          "?cachebuster=" +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <!-- load season configuration -->
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/config/' +
+          displayedSeason +
+          ".js?cachebuster=" +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/gapi.login.js?chachbuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt type="text/javascript" src="js/gapi.read.js?chachbuster=' +
+          cachebuster +
+          '"></scr' +
+          "ipt>"
+      );
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .loader {
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid blue;
+        width: 10px;
+        height: 10px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      Welcome to Salsativity
+    </h2>
+
+    <!-- <div class="loader"></div> -->
+
+    <img
+      src="/img/Salsativity Logo.svg"
+      alt="SVG mit img Tag laden"
+      width="200"
+      height="200"
+    />
+  </body>
+
+  <script type="text/javascript">
+    redirectGuardOrMember();
+  </script>
+</html>
