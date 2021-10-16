@@ -1,10 +1,10 @@
-// this is actually the same configuration as SS2020
+// this the form has changed since SS2020
 var DestinationGoogleFormId =
-  "1FAIpQLSdRMaP6VyoXWRKy4soR_RtRLL4DibFikwAYQFhb1lh2_GKx7A"; // google sheet id from URL https://docs.google.com/forms/d/[...]/edit
-var DestinationGoogleFormEntryId = "191679324"; // thats the fieldId for the memberId //press the three vertical dashes in google forms and click on "link f�r Formalr mit Beispielwerten abrufen"
+  "1FAIpQLSdxD1AJaHcOBMUrg-zw-gtTxw657JEnoiD6GmB4wTtYEVOldg"; // google forms -> previev from URL https://docs.google.com/spreadsheets/d/[COPY THIS]/edit
+var DestinationGoogleFormEntryId = "489757496"; // thats the fieldId for the memberId //press the three vertical dashes in google forms and click on "link f�r Formalr mit Beispielwerten abrufen"
 var DestinationGooglePrivateSpreadsheetId =
-  "17-hjfI9oEAsSmAEZcIkKfoMzpaTGIuJd3wVV5X6zMYY"; // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit
-var DestinationGooglePrivateSheetRange = ["Formularantworten 1!B:G"];
+  "1gqi98WxjK-Yb6PieXJxs_t_A5hgffBeHeJPgQwiVeTw"; // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit
+var DestinationGooglePrivateSheetRange = ["Formularantworten 1!B:I"];
 var DestinationGooglePublicSpreadsheetId =
-  "1QqKgOTHMOSraR3KsF6eipUMU2KUeGG_HarmyRy8GuTE"; // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit that has the importrange setup to only import public data
-var DestinationGooglePublicSheetRange = ["Tabellenblatt1!A:G"];
+  "1OL6wDEc3e4Ncqfoco8WfNWMG_zZ-Df9aWdhY5bvDews"; // google spreadsheets id from URL https://docs.google.com/spreadsheets/d/[....]/edit that has the importrange setup to only import public data
+var DestinationGooglePublicSheetRange = ["Tabellenblatt1!A:E"];

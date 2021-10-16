@@ -1,5 +1,6 @@
 //check if member at ID even exists
 function redirectGuardOrMember() {
+  console.log("Redirecting");
   queryPublicSheet();
 }
 
@@ -11,16 +12,17 @@ function queryPrivateSheet() {
     valueRenderOption: "FORMATTED_VALUE",
     dateTimeRenderOption: "SERIAL_NUMBER"
   };
+  console.debug("querying private sheet");
   var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
   request.then(
-    function(response) {
+    function (response) {
       // Handle the results here (response.result has the parsed body).
       console.log(response.result);
       // MemberId is in second field (1)
       updateInputForms(response.result, 1);
-      updateImagesPrivate(response.result);
+      // updateImagesPrivate(response.result); removed due to it not working properly
     },
-    function(reason) {
+    function (reason) {
       console.error("error: " + reason.result.error.message);
     }
   );
@@ -33,23 +35,23 @@ function queryPublicSheet() {
     valueRenderOption: "FORMATTED_VALUE",
     dateTimeRenderOption: "SERIAL_NUMBER"
   };
-  console.log("Yeet");
+  console.debug("querying public sheet");
   var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
   request.then(
-    function(response) {
+    function (response) {
       // Handle the results here (response.result has the parsed body).
-      console.log("Here");
       console.log(response.result);
       // MemberId is in firstfield (0)
       updateInputForms(response.result, 0);
     },
-    function(reason) {
+    function (reason) {
       console.error("error: " + reason.result.error.message);
     }
   );
 }
 // populate input forms  code
 function updateInputForms(result, memberIdField) {
+  clearTable();
   // i, j query matrix
   // g output row matrix (future improvement: more output rows)
   var i = 0,
@@ -72,6 +74,7 @@ function updateInputForms(result, memberIdField) {
       ) {
         g++;
         isRegisteredMember = true;
+        console.debug("Matched Memberid and Field");
       }
       // loop through all the google sheet columns in this row and range
       for (
@@ -102,6 +105,7 @@ function updateInputForms(result, memberIdField) {
     getCookie("roles") != "guard" &&
     !isRegisteredMember
   ) {
+    console.debug("Requesting new Form");
     var url =
       "https://docs.google.com/forms/d/e/" +
       encodeURIComponent(DestinationGoogleFormId) +
@@ -111,9 +115,16 @@ function updateInputForms(result, memberIdField) {
       encodeURIComponent(queryString("memberId"));
     window.location.href = url;
   }
+
+  //update Qr image to reflect card URL
+  if (queryString("memberId") != null && isRegisteredMember) {
+    console.debug("Updateing QR with current page");
+    updateQRCode(1, window.location.href); //update with current page
+  }
 }
 
-// populate qr image
+// populate qr image with link of form
+// removed function below, as googles internal "continue edit on form" makes this feature more confusing than useful (sadly)
 function updateImagesPrivate(result) {
   // i, j query matrix
   // g output row matrix (future improvement: more output rows)
@@ -135,7 +146,7 @@ function updateImagesPrivate(result) {
       ) {
         g++;
         // check if queryString Memberid matches the second [1] field and update QR Code and link
-        updateQRCode(g, result.valueRanges[range].values[g][4]);
+        updateQRCode(g, result.valueRanges[range].values[g][4]); //CAREFUL, This link has sensitive Data in it
       }
     }
   }
