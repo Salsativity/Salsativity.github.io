@@ -29,9 +29,11 @@ function populateSelect(myArray, selectName, defaultSelection) {
 }
 
 function clearTable() {
+  console.debug("Clearing Table");
   for (var row = 0; row < 2; row++) {
-    for (var column = 0; column < 10; column++) {
+    for (var column = 0; column < 8; column++) {
       document.getElementById(row + ":" + column).value = "";
     }
   }
+  console.debug("Cleared Table");
 }
