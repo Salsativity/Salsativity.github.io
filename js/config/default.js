@@ -1,5 +1,5 @@
 // these are the sane defaults
-var defaultSeason = "SS2020";
+var defaultSeason = "WS2021";
 var availableSeasons = ["SS2020", "SI2020", "WS2021"];
 var requestedSeason = getCookie("Season");
 var ContactDomain = "salsativity.org";

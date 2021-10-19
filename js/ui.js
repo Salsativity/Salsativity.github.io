@@ -1,8 +1,11 @@
 function updateQRCode(row, href) {
-  document.getElementById(row + ":QR-a").href = href;
-  document.getElementById(row + ":QR-img").src =
-    "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" +
-    encodeURIComponent(href);
+  if (row != null) {
+    document.getElementById(row + ":QR-a").href = href;
+    document.getElementById(row + ":QR-img").src =
+      "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" +
+      encodeURIComponent(href);
+    console.debug("updated QR-Code");
+  }
 }
 
 function loadMemberId(id) {
@@ -22,5 +25,13 @@ function populateSelect(myArray, selectName, defaultSelection) {
   }
   if (typeof defaultSelection !== "undefined") {
     sel.value = defaultSelection;
+  }
+}
+
+function clearTable() {
+  for (var row = 0; row < 2; row++) {
+    for (var column = 0; column < 10; column++) {
+      document.getElementById(row + ":" + column).value = "";
+    }
   }
 }
